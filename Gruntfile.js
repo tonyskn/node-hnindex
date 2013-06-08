@@ -7,9 +7,16 @@ module.exports = function(grunt) {
          }
       },
       jshint: {
-         all: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js' ] 
+         all: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js', 'example/*.js' ] 
       },
       mochacov: {
+         coveralls: {
+            options: {
+               coveralls: {
+                  serviceName: 'travis-ci'
+               }
+            }
+         },
          coverage: {
             options: {
                reporter: 'html-cov',
@@ -25,7 +32,7 @@ module.exports = function(grunt) {
             ui: 'exports',
             timeout: 4000,
             'no-colors': true,
-            'files': 'test/*.js'
+            'files': 'test/test-*.js'
          }
       }
    });
@@ -34,12 +41,13 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-mocha-cov');
    grunt.loadNpmTasks('grunt-env');
 
-   // Default task(s).
+   // Tasks
    grunt.registerTask('lint', ['jshint']);
    grunt.registerTask('test', ['env:mock', 'mochacov:test']);
    grunt.registerTask('test-nomocks', ['mochacov:test']);
-   grunt.registerTask('coverage', ['env:mock', 'mochacov:coverage']);
 
    grunt.registerTask('default', ['lint', 'test']);
+   grunt.registerTask('coverage',['default', 'mochacov:coverage']);
+   grunt.registerTask('travis',  ['default', 'mochacov:coveralls']);
 };
 
