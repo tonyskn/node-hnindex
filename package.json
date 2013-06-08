@@ -1,36 +1,37 @@
 {
-   "name": "node-hnindex",
-   "version": "0.0.1",
-   "description": "HackerNews scraper for Node.js",
-   "main": "index.js",
-   "scripts": {
-      "test": "./node_modules/.bin/grunt test",
-      "blanket": {
-         "pattern": [
-            "src",
-            "src/groups"
-         ]
-      }
-   },
-   "engines": {
-      "node": ">=0.10.0"
-   },
-   "repository": {
-      "type": "git",
-      "url": "git://github.com/tonyskn/hn-index.git"
-   },
-   "author": "Tony Sokhon",
-   "license": "MIT",
-   "dependencies": {
-      "request": "~2.21.0"
-   },
-   "devDependencies": {
-      "grunt": "~0.4.1",
-      "grunt-cli": "~0.1.8",
-      "grunt-contrib-jshint": "~0.5.2",
-      "grunt-mocha-cov": "~0.0.7",
-      "should": "~1.2.2",
-      "grunt-env": "~0.4.0",
-      "nock": "~0.18.2"
-   }
+  "name": "hnindex",
+  "version": "0.0.1",
+  "description": "HackerNews scraper for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/grunt test",
+    "blanket": {
+      "pattern": [
+        "src",
+        "src/groups"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tonyskn/node-hnindex.git"
+  },
+  "author": "Tony Sokhon",
+  "license": "MIT",
+  "dependencies": {
+    "request": "~2.21.0",
+    "cheerio": "~0.11.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.8",
+    "grunt-contrib-jshint": "~0.5.2",
+    "grunt-mocha-cov": "~0.0.7",
+    "should": "~1.2.2",
+    "grunt-env": "~0.4.0",
+    "nock": "~0.18.2"
+  }
 }
