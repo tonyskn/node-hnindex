@@ -9,11 +9,11 @@ if (process.env.HTTP_MOCK) {
 
 module.exports = {
    "HN Scraper": {
-      "Should scrap 30 popular results": function(done) {
+      "Should scrap ~30 popular results": function(done) {
          HN.popular(function(err, results) {
             should.not.exist(err);
 
-            results.entries.should.have.length(30);
+            results.entries.should.have.length(29);
 
             done();
          });
@@ -35,7 +35,6 @@ module.exports = {
 var assertProperties = function(done, err, results) {
    should.not.exist(err);
 
-   results.entries.should.have.length(30);
    results.entries.forEach(function(entry) {
       entry.should.have.property("url");
       entry.should.have.property("title");

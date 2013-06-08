@@ -15,6 +15,6 @@ http_mocks
    .get('/ask')
    .reply(200, feed)
 
-   .get('/x?fnid=RUuhyc5kPbUTgpi3f3Gw0N')
+   .get('/x?fnid=YhmqhxKOmmHmfoXpJcaNsd')
    .reply(200, feed); 
 

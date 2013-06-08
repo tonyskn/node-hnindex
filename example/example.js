@@ -1,6 +1,6 @@
 var HN = require('../index');
 
-var entriesView = function(i, entries) {
+var entries = function(i, entries) {
    return entries.map(function(entry) {
       return i++ + "> " + entry.title +
                " [" + entry.url + "] " +
@@ -10,10 +10,10 @@ var entriesView = function(i, entries) {
 };
 
 
-HN.newest(function(err, results) {
-   console.log(entriesView(1, results.entries));
+HN.popular(function(err, results) {
+   console.log(entries(1, results.entries));
 
    results.more(function(err, moreResults) {
-      console.log(entriesView(31, results.entries));
+      console.log(entries(31, results.entries));
    });
 });
