@@ -28,10 +28,13 @@ HN.prototype.ask = function(callback) {
 
 
 HN.prototype.scrap = function(uri, callback) {
-   var self = this;
+   uri = uri || "/";
+
+   var self = this,
+       url = this.options.base_url + (uri[0] !== '/' ? "/" : "") +  uri;
 
    request.get({
-      url: this.options.base_url + uri,
+      url: url,
       headers: this.options.headers
    }, function(err, resp, htmlResult) {
       if (err) {

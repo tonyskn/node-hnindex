@@ -20,7 +20,7 @@ module.exports.parseFeed = function(html) {
                };
             }
          }
-      }).slice(0,30).filter(function(e) { return typeof e !== "undefined"; }),
+      }).filter(function(e) { return typeof e !== "undefined"; }),
 
       moreUri: $("td.title a").last().attr('href')
    };
