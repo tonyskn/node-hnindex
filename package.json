@@ -27,16 +27,16 @@
     "author": "Tony Sokhon",
     "license": "MIT",
     "dependencies": {
-        "request": "~2.21.0",
-        "cheerio": "~0.11.0"
+        "request": "~2.33.0",
+        "cheerio": "~0.13.1"
     },
     "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-cli": "~0.1.8",
-        "grunt-contrib-jshint": "~0.5.2",
-        "grunt-mocha-cov": "~0.0.7",
-        "should": "~1.2.2",
-        "grunt-env": "~0.4.0",
-        "nock": "~0.18.2"
+        "grunt": "~0.4.2",
+        "grunt-cli": "~0.1.11",
+        "grunt-contrib-jshint": "~0.8.0",
+        "grunt-mocha-cov": "~0.2.0",
+        "should": "~3.0.1",
+        "grunt-env": "~0.4.1",
+        "nock": "~0.27.1"
     }
 }
