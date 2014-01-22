@@ -1,20 +1,17 @@
 
-var nock = require('nock'),
-    fs = require('fs');
+var nock = require('nock');
 
-var http_mocks = nock('https://news.ycombinator.com/').persist(),
-    feed = fs.readFileSync(__dirname + '/news.html');
+nock('https://news.ycombinator.com/')
+  .persist()
 
-http_mocks
-   .get('/news')
-   .reply(200, feed)
+  .get('/news')
+  .replyWithFile(200, __dirname + '/news.html')
 
-   .get('/newest')
-   .reply(200, feed)
-   
-   .get('/ask')
-   .reply(200, feed)
+  .get('/newest')
+  .replyWithFile(200, __dirname + '/news.html')
 
-   .get('/x?fnid=YhmqhxKOmmHmfoXpJcaNsd')
-   .reply(200, feed); 
+  .get('/ask')
+  .replyWithFile(200, __dirname + '/news.html')
 
+  .get('/x?fnid=YhmqhxKOmmHmfoXpJcaNsd')
+  .replyWithFile(200, __dirname + '/news.html'); 

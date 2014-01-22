@@ -1,22 +1,24 @@
 var HN = require('../');
 
-var template = (function(i) {
-    return function(entries) {
-       return entries.map(function(entry) {
-          return i++ + "> " + entry.title +
-                   " [" + entry.url + "] " +
-                   " by (" + entry.owner + ") " +
-                   entry.hnThreadId + " | " + entry.score + "/" + entry.commentScore;
-       });
-    };
-})(1);
+var n = 1;
 
+var printer = function(err, results) {
+  if (err) {
+    return console.log("ERROR!", err);
+  }
 
-HN.popular( function(err, results) {
-   console.log( template(results.entries) );
+  results.entries.forEach(function(entry) {
+    console.log(n++ + "> " + entry.title +
+                " [" + entry.url + "] " +
+                " by (" + entry.owner + ") " +
+                entry.hnThreadId + " | " + entry.score + "/" + entry.commentScore);
+  });
+};
 
-   results.more( function(err, moreResults) {
-      console.log( template(moreResults.entries) );
-   } );
-} );
+HN.popular(function(err, results) {
+  printer(err, results);
+
+  results.more(printer);
+});
+
 
